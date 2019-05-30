@@ -1,0 +1,88 @@
+﻿@model PoCars.ViewModels.CarViewModel
+
+<h1>Add new Car</h1>
+<form asp-action="Create" method="post" class="form-horizontal" role="form">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Car.Brand" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select class="form-control dropdown" asp-for="@Model.Car.Brand"
+                    asp-items="Model.Brands">
+                <option value=""></option>
+            </select>
+            <span asp-validation-for="@Model.Car.Brand" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Car.Model" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.Car.Model" class="form-control" />
+            <span asp-validation-for="@Model.Car.Model" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Car.Year" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input type="number" value="2018" min="1950" max="@DateTime.Now.Year" asp-for="@Model.Car.Year" class="form-control" />
+            <span asp-validation-for="@Model.Car.Year" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Car.Mileage" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input type="number" min="0" value="0" asp-for="@Model.Car.Mileage" class="form-control" />
+            <span asp-validation-for="@Model.Car.Mileage" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="@Model.Car.BodyStyle" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select class="form-control dropdown" asp-for="@Model.Car.BodyStyle"
+                    asp-items="Model.BodyStyles">
+                <option value=""></option>
+            </select>
+            <span asp-validation-for="@Model.Car.BodyStyle" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Car.Fuel" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select class="form-control dropdown" asp-for="@Model.Car.Fuel"
+                    asp-items="Model.FuelType">
+                <option value=""></option>
+            </select>
+            <span asp-validation-for="@Model.Car.Fuel" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="@Model.Car.EnginePower" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input type="number" value="0" min="1" max="999 " asp-for="@Model.Car.EnginePower" class="form-control" />
+            <span asp-validation-for="@Model.Car.EnginePower" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="@Model.Car.Price" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input type="number" value="0" min="1" asp-for="@Model.Car.Price" class="form-control" />
+            <span asp-validation-for="@Model.Car.Price" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Create Car" />
+        </div>
+    </div>
+</form>
+
+

@@ -1,0 +1,69 @@
+﻿@model CarViewModel
+
+<h1>Edit</h1>
+<h4>Car</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.Car.Id" />
+            <div class="form-group">
+                <label asp-for="@Model.Car.Brand" class="control-label"></label>
+                <select class="form-control dropdown" asp-for="@Model.Car.Brand"
+                        asp-items="Model.Brands">
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="@Model.Car.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Car.Model" class="control-label"></label>
+                <input asp-for="@Model.Car.Model" class="form-control" />
+                <span asp-validation-for="@Model.Car.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Car.Year" class="control-label"></label>
+                <input asp-for="@Model.Car.Year" class="form-control" />
+                <span asp-validation-for="@Model.Car.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Car.Mileage" class="control-label"></label>
+                <input asp-for="@Model.Car.Mileage" class="form-control" />
+                <span asp-validation-for="@Model.Car.Mileage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Car.BodyStyle" class="control-label"></label>
+                <select class="form-control dropdown" asp-for="@Model.Car.BodyStyle"
+                        asp-items="Model.BodyStyles">
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="@Model.Car.BodyStyle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Car.Fuel" class="control-label"></label>
+                <select class="form-control dropdown" asp-for="@Model.Car.Fuel"
+                        asp-items="Model.FuelType">
+                <option value=""></option>
+                </select>
+                <span asp-validation-for="@Model.Car.Fuel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Car.EnginePower" class="control-label"></label>
+                <input asp-for="@Model.Car.EnginePower" class="form-control" />
+                <span asp-validation-for="@Model.Car.EnginePower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Car.Price" class="control-label"></label>
+                <input asp-for="@Model.Car.Price" class="form-control" />
+                <span asp-validation-for="@Model.Car.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

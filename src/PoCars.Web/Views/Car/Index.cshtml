@@ -1,0 +1,53 @@
+﻿@model CarIndexViewModel
+
+<h1>Car for Sell !</h1>
+<h3>
+    <a asp-action="Create">Sell your car</a>
+</h3>
+
+<div class="table-responsive">
+    <table class="table table-striped recipe">
+        <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Car.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.Brand)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.Model)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.Year)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.Mileage)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.BodyStyle)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.Fuel)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.EnginePower)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.Price)</th>
+            <th>@Html.DisplayNameFor(model => model.Car.CreatedAt)</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in @Model.Cars)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.Brand</td>
+                <td>@item.Model</td>
+                <td>@item.Year</td>
+                <td>@item.Mileage</td>
+                <td>@item.BodyStyle</td>
+                <td>@item.Fuel</td>
+                <td>@item.EnginePower</td>
+                <td>@String.Format($"{@item.Price:C}")</td>
+                <td>@item.CreatedAt.ToShortDateString()</td>
+
+                <form method="get">
+                    <td><button class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id" class="btn">View</button> </td>
+                    <td><button class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id" class="btn">Edit</button> </td>
+                </form>
+                <form method="post">
+                    <td><button class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id" class="btn">Delete</button></td>
+                </form>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
