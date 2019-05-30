@@ -41,7 +41,7 @@ namespace PoCars.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Car car)
+        public async Task UpdateAsync(int id, Car car)
         {
             _context.Cars.Update(car);
             await _context.SaveChangesAsync();

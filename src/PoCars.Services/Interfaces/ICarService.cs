@@ -9,7 +9,7 @@ namespace PoCars.Services.Interfaces
         Task<Car> GetByIdAsync(int id);
         Task<IEnumerable<Car>> GetAllAsync();
         Task AddAsync(Car car);
-        Task UpdateAsync(Car car);
+        Task UpdateAsync(int id, Car car);
         Task DeleteAsync(int id);
     }
 }
