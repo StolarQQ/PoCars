@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PoCars.Domain;
 
 namespace PoCars.Infrastructure
 {
-    public class PoCarsContext : DbContext
+    public class PoCarsContext : IdentityDbContext<IdentityUser>
     {
         public PoCarsContext(DbContextOptions<PoCarsContext> options) : base(options)
         {
@@ -20,8 +22,9 @@ namespace PoCars.Infrastructure
             carBuilder.HasKey(x => x.Id);
             carBuilder.Property(x => x.Id)
                 .HasAnnotation("DatabaseGenerated", DatabaseGeneratedOption.None);
-            //carBuilder.Property(x => x.Price).HasAnnotation("Column", TypeName = "decimal(4,2)");
 
+            // Added for IdentityUserLogin primary key
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
